@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package discount;
+
+option java_package = "com.grpc.discount";
+option java_multiple_files = true;
+
+message DiscountRequest {
+  string product_id = 1;
+  int32 user_id = 2;
+  string original_price = 3;
+}
+
+message DiscountResponse {
+  string discounted_price = 1;
+  double discount_percentage = 2;
+}
+
+enum DiscountErrorCode {
+  INVALID_PRODUCT_ID = 0;
+  INVALID_USER_ID = 1;
+  INVALID_PRICE_VALUE = 2;
+}
+
+message DiscountExceptionResponse {
+  google.protobuf.Timestamp timestamp = 1;
+  DiscountErrorCode error_code = 2;
+  string error_message = 3;
+}
+
+service DiscountService {
+  // unary
+  rpc calculateDiscount(DiscountRequest) returns (DiscountResponse) {};
+}
+
+

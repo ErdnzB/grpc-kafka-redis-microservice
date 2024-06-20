@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: discount-calculator
+grpc:
+  server:
+    port: 8012
+
+# commented out for docker
+#spring.config.import=optional:configserver:http://localhost:8888
