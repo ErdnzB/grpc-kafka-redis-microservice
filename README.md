@@ -1,4 +1,4 @@
-# Microservice micrometer log tracing
+# Microservice
 
 I attempted to explain the libraries and some monitoring tools used to trace logs in projects written with a
 microservices architecture.
